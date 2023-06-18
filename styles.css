@@ -46,9 +46,9 @@ a
 {
     line-break: anywhere;
     text-align: justify;
-    color: rgb(255, 255, 255);
+    color: #ffffff;
     font-size: 35px;
-    color: rgb(0, 255, 13);
+    color: #00ff0d;
     font-family: arial;
     text-underline-offset: 5000000000000px;
 }
@@ -71,4 +71,10 @@ li
     text-align: justify;
     margin-right: 5%;
     margin-left: 4%;
+}
+marquee
+{
+    font-size: 9px;
+    color: rgb(255, 255, 255);
+    font-family: arial;
 }
