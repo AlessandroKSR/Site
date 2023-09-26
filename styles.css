@@ -87,8 +87,9 @@
     }
     table
     {
-        margin-left: 30%;
-        margin-right: 30%;
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
     }
     ul
     {
@@ -247,6 +248,7 @@
     }
     table
     {
+        width: 60%;
         margin-left: 20%;
         margin-right: 20%;
     }
