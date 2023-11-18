@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="menu.css">
+    <script>
+        function redirectToIndex() {
+            // Redirecionar para a página "index.html"
+            window.location.href = 'index.html';
+        }
+    </script>
+</head>
+<body>
+    <!-- Seu código existente -->
+
+    <div class="menuContainer">
+        <div class="centerContainer">
+            <div class="title">
+                <img src="imagens/title.png" alt="Clitoris Adventure" class="title">
+            </div>
+            <menu class="menu">
+                <!-- Adicionando o evento de clique para redirecionar ao clicar em "Jogar" -->
+                <div class="buttons" onclick="redirectToIndex()">Jogar</div>
+                <div class="buttons" onclick="callOverlay('settings')">Opções</div>
+                <div class="buttons" onclick="callOverlay('credit')">Créditos</div>
+            </menu>
+        </div>  
+        <div class="copyright"></div>
+    </div>
+    <div class="imagem1">
+        <img class="imagem1" src="imagens\ovulo.png" alt="Left Image">
+    </div>
+    <div class= "imagem2">
+        <img src="imagens/esperma.png" alt="Right Image">
+    </div>
+
+</body>
+</html>
