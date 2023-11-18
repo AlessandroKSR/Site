@@ -2,12 +2,17 @@ var canvas = document.getElementById("gameCanvas");
 var ctx = canvas.getContext("2d");
 
 var backgroundImage = new Image();
+var personagem = new Image();
+var perguntas = new Image();
+
 backgroundImage.src = "imagens/fundo.png";
+personagem.src = "imagens/ovulo.png";
+perguntas.src = "imagens/mario-sprite.png"
 
 var player = {
     x: 50,
     y: 50,
-    width: 32,
+    width: 48,
     height: 48,
     speed: 5,
     jumpHeight: 15,

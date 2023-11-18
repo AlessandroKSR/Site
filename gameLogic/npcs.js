@@ -24,8 +24,8 @@ var npcs = [
         }
     },
     {
-        x: 1500,
-        y: 502,
+        x: 1290,
+        y: 150,
         width: 32,
         height: 48,
         quiz: {
@@ -35,7 +35,7 @@ var npcs = [
         }
     },
     {
-        x: 2100,
+        x: 1600,
         y: 502,
         width: 32,
         height: 48,
@@ -46,8 +46,63 @@ var npcs = [
         }
     },
     {
-        x: 2700,
+        x: 2100,
         y: 502,
+        width: 32,
+        height: 48,
+        quiz: {
+            question: "Qual o papel da progesterona no ciclo menstrual?",
+            options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
+            correctAnswer: "Preparar o revestimento do útero para a gravidez"
+        }
+    },
+    {
+        x: 2650,
+        y: 350,
+        width: 32,
+        height: 48,
+        quiz: {
+            question: "Qual o papel da progesterona no ciclo menstrual?",
+            options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
+            correctAnswer: "Preparar o revestimento do útero para a gravidez"
+        }
+    },
+    {
+        x: 2900,
+        y: 502,
+        width: 32,
+        height: 48,
+        quiz: {
+            question: "Qual o papel da progesterona no ciclo menstrual?",
+            options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
+            correctAnswer: "Preparar o revestimento do útero para a gravidez"
+        }
+    },
+    {
+        x: 3880,
+        y: 300,
+        width: 32,
+        height: 48,
+        quiz: {
+            question: "Qual o papel da progesterona no ciclo menstrual?",
+            options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
+            correctAnswer: "Preparar o revestimento do útero para a gravidez"
+        }
+    },
+    {
+        x: 4350,
+        y: 50,
+        width: 32,
+        height: 48,
+        quiz: {
+            question: "Qual o papel da progesterona no ciclo menstrual?",
+            options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
+            correctAnswer: "Preparar o revestimento do útero para a gravidez"
+        }
+    },
+    {
+        x: 4575,
+        y: 350,
         width: 32,
         height: 48,
         quiz: {

@@ -16,7 +16,6 @@ function update() {
 
     updateEnemies();
 
-
     // Movimento do jogador
     if (keys['a'] || keys['A']) {
         player.x -= player.speed;
@@ -45,6 +44,25 @@ function update() {
             player.velocityY = 0;
             onGround = true;
         }
+    });
+        barreira.forEach(function(barreira) {
+            if (
+                player.x < barreira.x + barreira.width &&
+                player.x + player.width > barreira.x &&
+                player.y + player.height > barreira.y &&
+                player.y < barreira.y + barreira.height
+            ) {
+                if(barreira.x == -600)
+                {
+                    player.velocityY = 0;
+                    player.x = player.x + 5;
+                }
+                else
+                {
+                    player.velocityY = 0;
+                    player.x = player.x - 5;
+                }
+            }
     });
 
     // Ajusta a posição do jogador se estiver no chão
