@@ -1,15 +1,16 @@
 var enemies = [
-    { x: 1000, y: 510, width: 40, height: 40, alive: true},
-    { x: 10000, y: 510, width: 40, height: 40, alive: true},
-    { x: 20000, y: 510, width: 40, height: 40, alive: true},
-    { x: 30000, y: 510, width: 40, height: 40, alive: true},
-    { x: 40000, y: 510, width: 40, height: 40, alive: true},
-    { x: 50000, y: 510, width: 40, height: 40, alive: true},
+    { x: 1000, y: 470, width: 80, height: 80, alive: true},
+    { x: 10000, y: 470, width: 80, height: 80, alive: true},
+    { x: 20000, y: 470, width: 80, height: 80, alive: true},
+    { x: 30000, y: 470, width: 80, height: 80, alive: true},
+    { x: 40000, y: 470, width: 80, height: 80, alive: true},
+    { x: 50000, y: 470, width: 80, height: 80, alive: true},
 ];
 
 function drawEnemies() {
 
     enemies.forEach(function(enemy) {
+        
         if (enemy.alive) {
             ctx.drawImage(inimigos, enemy.x - camera.x, enemy.y, enemy.width, enemy.height);
         }
@@ -42,10 +43,20 @@ function updateEnemies() {
     // Lógica do inimigo (pode ser expandida conforme necessário)
     enemies.forEach(function(enemy) {
         if (enemy.alive) {
-            // Calcula a direção para o jogador
-            var direction = player.x - enemy.x;
+           
+            var direction = -1
 
-            // Move o inimigo em direção ao jogador com uma velocidade definida
+            
+            cano.forEach(function(cano) {
+                    if (
+                        enemies.x < enemies.x + cano.width &&
+                        enemies.x + enemies.width > cano.x &&
+                        enemies.y + enemies.height > cano.y &&
+                        enemies.y < cano.y + cano.height
+                    ) {
+                        direction = -direction;
+                    }   
+            });
             var enemySpeed = 2; // Ajuste conforme necessário
             if (direction > 0) {
                 enemy.x += enemySpeed;
