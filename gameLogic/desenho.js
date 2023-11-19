@@ -27,6 +27,12 @@ var barreira = [
     { x: 5000, y: 0, width: 1, height: 2000000}
 ];
 
+var cano = [ 
+    { x: 900, y: 400, width: 50, height: 150 },  
+    { x: 1200, y: 400, width: 50, height: 150 }, 
+    { x: 2000, y: 400, width: 50, height: 150 } 
+]
+
 function draw() {
     
     ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
@@ -47,8 +53,14 @@ function draw() {
         ctx.fillRect(platform.x - camera.x, platform.y, platform.width, platform.height);
     });
 
+    ctx.fillStyle = "green";
+    cano.forEach(function(cano) {
+        ctx.fillRect(cano.x - camera.x, cano.y, cano.width, cano.height);
+    });
+
+
     // Exibe vidas e respostas corretas
-    ctx.font = "20px Arial";
+    ctx.font = "20px arial";
     ctx.fillStyle = "white";
     ctx.fillText("Vidas: " + player.lives, 20, 30);
     ctx.fillText("Respostas Corretas: " + player.correctAnswers, 20, 60);
