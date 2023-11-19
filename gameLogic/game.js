@@ -4,16 +4,20 @@ var ctx = canvas.getContext("2d");
 var backgroundImage = new Image();
 var personagem = new Image();
 var perguntas = new Image();
+var inimigos = new Image();
+var personagemAndando = new Image();
 
 backgroundImage.src = "imagens/fundo.png";
 personagem.src = "imagens/ovulo.png";
-perguntas.src = "imagens/mario-sprite.png"
+perguntas.src = "imagens/mario-sprite.png";
+inimigos.src = "imagens/anticoncepcional.png";
+personagemAndando = "imagens/mario-sprite.png";
 
 var player = {
     x: 50,
     y: 50,
-    width: 48,
-    height: 48,
+    width: 50,
+    height: 50,
     speed: 5,
     jumpHeight: 15,
     gravity: 1,
