@@ -21,12 +21,14 @@ var platforms = [
     { x: 4275, y: 100, width: 200, height: 20 },
     { x: 4500, y: 400, width: 200, height: 20 }
 ];
+
 var barreira = [
     { x: -600, y: 0, width: 1, height: 2000000},
     { x: 5000, y: 0, width: 1, height: 2000000}
 ];
 
 function draw() {
+    
     ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
     drawEnemies();

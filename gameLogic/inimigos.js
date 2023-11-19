@@ -1,18 +1,17 @@
 var enemies = [
-    {
-        x: 1300,
-        y: 502,
-        width: 32,
-        height: 48,
-        alive: true
-    }
+    { x: 1000, y: 510, width: 40, height: 40, alive: true},
+    { x: 10000, y: 510, width: 40, height: 40, alive: true},
+    { x: 20000, y: 510, width: 40, height: 40, alive: true},
+    { x: 30000, y: 510, width: 40, height: 40, alive: true},
+    { x: 40000, y: 510, width: 40, height: 40, alive: true},
+    { x: 50000, y: 510, width: 40, height: 40, alive: true},
 ];
 
 function drawEnemies() {
-    ctx.fillStyle = "red";
+
     enemies.forEach(function(enemy) {
         if (enemy.alive) {
-            ctx.fillRect(enemy.x - camera.x, enemy.y, enemy.width, enemy.height);
+            ctx.drawImage(inimigos, enemy.x - camera.x, enemy.y, enemy.width, enemy.height);
         }
     });
 
@@ -23,6 +22,7 @@ function checkEnemyCollision() {
     enemies.forEach(function(enemy) {
         if (checkCollision(player, enemy) && player.velocityY > 0 && player.y < enemy.y) {
             // O jogador está acima do inimigo e caindo, então mata o inimigo
+            enemy.y = -500000
             enemy.alive = false;
             player.velocityY = -player.jumpHeight; // Faz o jogador pular após matar o inimigo
         } else if (checkCollision(player, enemy) && enemy.alive) {
