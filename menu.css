@@ -1,22 +1,18 @@
 body {
   background-color: #da9ab8;
-}
-
-.title h1 {
-  font-family: "Pacifico", cursive;
-  color: #dd59b5;
-  text-shadow: 2.5px 1px #b0302e;
+  overflow: hidden;
 }
 
 .centerContainer {
   position: fixed;
-  max-width: 40vw;
+  max-width: 30vw;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
+  z-index: 5;
 }
 
-@media (max-width: 39.9375em) {
+@media (max-width:768px) {
   .centerContainer {
       max-width: 90vw;
       width: 90vw;
@@ -25,15 +21,14 @@ body {
 
 .centerContainer .title {
   width: 100%;
-  animation: rotate 6s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+  margin-left: 10%;
+  animation: balancar 1s infinite;
 }
 
-
-.centerContainer menu {
-  width: 100%;
-  margin-top: 1.5rem;
+.credit
+{
+  background-color: aqua;
 }
-
 .centerContainer menu .buttons {
   display: flex;
   width: 100%;
@@ -47,137 +42,20 @@ body {
   color: #f2f2f2;
   font-size: 2.25rem;
   cursor: pointer;
-  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s all;
-}
-
-
-
-.centerContainer menu .buttons:not(:last-child) {
   margin-bottom: 1rem;
 }
-
-body {
+.centerContainer menu .buttons:hover {
   background-color: #da9ab8;
-}
-
-.title h1 {
-  font-family: "Pacifico", cursive;
-  color: #dd59b5;
-  text-shadow: 2.5px 1px #b0302e;
-}
-
-.centerContainer {
-  position: fixed;
-  max-width: 40vw;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-}
-
-@media (max-width: 39.9375em) {
-  .centerContainer {
-      max-width: 90vw;
-      width: 90vw;
-  }
-}
-
-.centerContainer .title {
-  width: 100%;
-  animation: rotate 6s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
-}
-
-
-.centerContainer menu {
-  width: 100%;
-  margin-top: 1.5rem;
-}
-
-.centerContainer menu .buttons {
-  display: flex;
-  width: 100%;
-  height: 6rem;
-  border: 0.6rem #c91e6da9 solid;
-  background-color: #c91e6da9;
-  border-radius: 2rem;
-  justify-content: center;
-  align-items: center;
-  font-family: "Pacifico", cursive;
-  color: #f2f2f2;
-  font-size: 2.25rem;
-  cursor: pointer;
-  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s all;
-}
-
-
-
-.centerContainer menu .buttons:not(:last-child) {
-  margin-bottom: 1rem;
-}
-
-body {
-  background-color: #da9ab8;
-}
-
-.title h1 {
-  font-family: "Pacifico", cursive;
-  color: #dd59b5;
-  text-shadow: 2.5px 1px #b0302e;
-}
-
-.centerContainer {
-  position: fixed;
-  max-width: 40vw;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-}
-
-@media (max-width: 39.9375em) {
-  .centerContainer {
-      max-width: 90vw;
-      width: 90vw;
-  }
-}
-
-.centerContainer .title {
-  width: 100%;
-  animation: rotate 6s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
-  align-items: center;
-  z-index: 0;
-}
-
-
-.centerContainer menu {
-  width: 100%;
-  margin-top: 1.5rem;
-}
-
-.centerContainer menu .buttons {
-  display: flex;
-  width: 100%;
-  height: 6rem;
-  border: 0.6rem #c91e6da9 solid;
-  background-color: #c91e6da9;
-  border-radius: 2rem;
-  justify-content: center;
-  align-items: center;
-  font-family: "Pacifico", cursive;
-  color: #f2f2f2;
-  font-size: 2.25rem;
-  cursor: pointer;
-  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s all;
-}
-
-
-
-.centerContainer menu .buttons:not(:last-child) {
-  margin-bottom: 1rem;
+  scale: 1;
+  height: 7rem;
+  transition:  1s;
+  transform: rotateZ(360deg);
 }
 
 .imagem1 {
   position: absolute;
   float: right;
-  animation: fundo 50s infinite linear;
+  animation: fundo 20s infinite linear;
   z-index: 3;
   margin-top: 5%;
   width: 30vh;
@@ -190,7 +68,6 @@ body {
   z-index: 2;
   width: 50%;
   margin: 20%;
-  overflow: hidden;
 }
 
 .imagem3 {
@@ -202,11 +79,27 @@ body {
   width: 10vh;
 }
 
+@keyframes balancar {
+  0% {
+    transform: rotate(2deg);
+    scale: 1.1;
+  }
+  50% {
+    transform: rotate(-2deg);
+    scale: 1;
+  }
+  100% {
+    transform: rotate(2deg);
+    scale: 1.1;
+  }
+}
+
 @keyframes fundo
 {
     from
     {
-        right: 0;
+        right: -10%;
+        transform: rotateY(360deg);
     }
     to
     {
@@ -219,11 +112,11 @@ body {
     from
     {
         left: -50%;
+        transform: rotateX(360deg);
     }
     to
     {
         left: 100%;
-        overflow: hidden;
     }
 }
 
@@ -231,8 +124,9 @@ body {
 {
     from
     {
-        right: 0;
-        bottom: 0;
+        right: -10%;
+        bottom: -10%;
+        transform: rotateZ(360deg);
     }
     to
     {
@@ -240,5 +134,4 @@ body {
         bottom: 130%;
     }
 }
-
 
