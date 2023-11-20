@@ -14,7 +14,7 @@ inimigos.src = "imagens/diu.png";
 inimigosA.src = "imagens/anticoncepcional.png";
 
 var player = {
-    x: 700,
+    x: 125,
     y: 50,
     width: 50,
     height: 50,

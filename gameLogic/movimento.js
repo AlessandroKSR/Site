@@ -70,8 +70,6 @@ function update() {
         player.jumping = true;
     }
 
-    // Pulo
-    // Pulo
 if ((keys['w'] || keys['W']) && !player.jumping && onGround) {
     player.velocityY = -player.jumpHeight;
     player.jumping = true;
