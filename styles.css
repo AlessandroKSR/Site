@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #da9ab8
+    background-color:rgba(230, 65, 147, 0.5); /* Cor de fundo azul claro */
 }
 
 canvas {
@@ -16,25 +16,6 @@ canvas {
     left: 50%;
 }
 
-ul{
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0;
-}
-
-li{
-    
-}
-
-ul button{
-    margin-bottom: 1rem;
-    font-family: "Pacifico", cursive;
-}
-
-
-
 #dialogBox {
     display: none;
     position: absolute;
@@ -45,8 +26,8 @@ ul button{
     padding: 20px;
     border: 2px solid #000;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 2%;
     z-index: 1;
-    font-family: "Pacifico", cursive;
 }
 
 #closeButton {
@@ -56,26 +37,32 @@ ul button{
     cursor: pointer;
     color: #000; /* Cor do texto do botão */
     font-weight: bold;
-    font-family: "Pacifico", cursive;
 }
 
-#timer{
-    float: right;
-    display: none;
+ul {
+    list-style-type: none; /* Remove marcadores de lista */
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
 }
 
 button {
-    background-color: #c91e6da9; /* Cor de fundo verde */
+    background-color: #c91e6da9;
     color: white;
     border: none;
+    border:#c91e6da9 solid;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 2%;
 }
 
 button:hover {
-    background-color: #45a049; /* Cor de fundo verde mais escura ao passar o mouse */
+    background-color: lightpink;
+    scale: 1.1; 
 }

@@ -3,37 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Platformer Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="menu.css">
+    
+    <script>
+        function redirectToIndex() {
+            window.location.href = 'jogo.html';
+        }
+    </script>
 </head>
 <body>
-    <audio controls autoplay loop src="audio/audio.mp3" id = "music" display = "none" style= "width:0%;"></audio>
 
+    <audio controls autoplay loop src="SnapInsta.io - Super Mario Bros. Theme Song (128 kbps).mp3" style="width: 0.00001%;"></audio>
+    <div class="menuContainer">
+        <div class="centerContainer">
 
-  <script>
-    const music = document.querySelector('#music')
-    window.addEventListener('click', () => {
-  music.play()
-})
-</script>
+            <img src="imagens/titulo.png" alt="Clitoris Adventure" class="title">
+                
+            <menu class="menu">
+                <div class="buttons" onclick="redirectToIndex()">Jogar</div>
+                <div class="buttons" onclick="callOverlay('credit')">Créditos</div>
+            </menu>
+        </div>  
+        
+    <img class="imagem1" src="imagens\anticoncepcional.png" alt="Imagem Direita">
 
-    <img id="backgroundImage" src="imagens/fundo.png" style="display: none;">
-    <canvas id="gameCanvas" width="1400" height="700"></canvas>
-    
+    <div class= "imagem2">
+        <img src="imagens/diu.png" alt="Imagem Esquerda">
+    </div>
 
-<div id="dialogBox">
-    
-    <span id="closeButton" onclick="closeDialog()">X</span>
-    <p id="dialogText"></p>
-    <ul id="optionsList"></ul>
-    <span id = "timer">Tempo Restante: 20s</span>
-</div>
-
-<script src="gameLogic/desenho.js"></script>
-<script src="gameLogic/movimento.js"></script>
-<script src="gameLogic/npcs.js"></script>
-<script src="gameLogic/inimigos.js"></script>
-<script src="gameLogic/game.js"></script>
+    <div class="imagem3">
+        <img class="imagem3" src="imagens\ovulo.png" alt="Imagem Diagonal">
+    </div>
 
 </body>
 </html>
