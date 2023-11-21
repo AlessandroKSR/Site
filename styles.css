@@ -24,10 +24,6 @@ ul{
     padding: 0;
 }
 
-li{
-    
-}
-
 ul button{
     margin-bottom: 1rem;
     font-family: "Pacifico", cursive;
@@ -43,8 +39,8 @@ ul button{
     transform: translate(-50%, -50%);
     background-color: #FFF;
     padding: 20px;
-    border: 2px solid #000;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 0.4vh solid #000;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
     z-index: 1;
     font-family: "Pacifico", cursive;
 }
@@ -59,23 +55,28 @@ ul button{
     font-family: "Pacifico", cursive;
 }
 
-#timer{
+#timer {
     float: right;
     display: none;
 }
 
+
+
 button {
     background-color: #c91e6da9; /* Cor de fundo verde */
     color: white;
-    border: none;
+    border-width: 0.5vh;
+    border-color: #c91e6da9;
     padding: 10px 20px;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 5%;
 }
 
 button:hover {
-    background-color: #45a049; /* Cor de fundo verde mais escura ao passar o mouse */
+    background: linear-gradient(to top left, #ff7875, #fc5e5b);
+    transition: 1s;
+    scale: 1.01;
 }

@@ -10,10 +10,10 @@ var canoIMG = new Image();
 
 backgroundImage.src = "imagens/fundo1.png";
 personagem.src = "imagens/ovulo.png";
-perguntas.src = "imagens/mario-sprite.png";
+perguntas.src = "imagens/Ovário.png";
 inimigos.src = "imagens/diu.png";
 inimigosA.src = "imagens/anticoncepcional.png";
-canoIMG.src = "imagens/pipe.png"
+canoIMG.src = "imagens/pipe.png";
 
 var player = {
     x: 0,
@@ -44,11 +44,18 @@ var camera = {
     y: 0
 };
 
+
 function endGame() {
     player.gameOver = true;
 
     // Mostra a mensagem final
     var endMessage = player.correctAnswers === 10 ? 'Parabéns! Você ganhou o jogo!' : 'Você perdeu o jogo!';
+    if(player.correctAnswers == 10)
+    {
+        document.getElementById('audioPlayer').play();
+    }
+    
+    
     showDialog(endMessage);
 
     // Adiciona o botão de retornar ao menu
@@ -74,6 +81,7 @@ function gameLoop() {
         atualiza();}
     desenho();
     requestAnimationFrame(gameLoop);
+    console.log(player.y);
 }
 
 window.addEventListener('keydown', function(e) {
@@ -84,6 +92,4 @@ window.addEventListener('keyup', function(e) {
     keys[e.key] = false;
 });
 
-
-// Inicializa o jogo
 gameLoop();

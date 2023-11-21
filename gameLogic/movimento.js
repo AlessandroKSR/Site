@@ -16,6 +16,10 @@ function atualiza() {
     if (player.gameOver || player.gameWon) {
         return;
     }
+    if(player.y > 1000)
+    {
+        endGame();
+    }
     checkEnemyCollision();
 
     updateEnemies();
