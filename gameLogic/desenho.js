@@ -1,36 +1,39 @@
-var plataforma = [
-    { x: -600, y: 600, width: 4900, height: 130 },
-    { x: 4600 , y: 600, width: 5000, height: 130 },
-    { x: 400, y: 450, width: 300, height: 20},
-    { x: 2290, y: 450, width: 700, height: 20 },
-    { x: 3000, y: 250, width: 400, height: 20 },
-    { x: 3475, y: 150, width: 300, height: 20 },
-    { x: 3850, y: 350, width: 150, height: 20 },
-    { x: 4275, y: 150, width: 200, height: 20 },
-    
+var platforms = [
+    { x: -10000, y: 550, width: 200000, height: 700 }, // Largura do chão aumentada
+    { x: 600, y: 400, width: 200, height: 20 },
+    { x: 50, y: 250, width: 200, height: 20 },
+    { x: 700, y: 220, width: 100, height: 20 },
+    { x: 1000, y: 350, width: 200, height: 20 },
+    { x: 1200, y: 200, width: 200, height: 20 },
+    { x: 1600, y: 440, width: 230, height: 20 },
+    { x: 2000, y: 350, width: 250, height: 20 },
+    { x: 2250, y: 200, width: 150, height: 20 },
+    { x: 2475, y: 300, width: 150, height: 20 },
+    { x: 2630, y: 400, width: 75, height: 20 },
+    { x: 2850, y: 250, width: 200, height: 20 },
+    { x: 3060, y: 350, width: 200, height: 20 },
+    { x: 3250, y: 200, width: 200, height: 20 },
+    { x: 3475, y: 100, width: 75, height: 20 },
+    { x: 3605, y: 230, width: 200, height: 20 },
+    { x: 3825, y: 100, width: 100, height: 20 },
+    { x: 3850, y: 350, width: 100, height: 20 },
+    { x: 4050, y: 200, width: 200, height: 20 },
+    { x: 4275, y: 100, width: 200, height: 20 },
+    { x: 4500, y: 400, width: 200, height: 20 }
 ];
 
 var barreira = [
-    { x: -200, y: 0, width: 1, height: 20000},
-    { x: 6600, y: 0, width: 1, height: 20000}
+    { x: -600, y: 0, width: 1, height: 2000000},
+    { x: 5000, y: 0, width: 1, height: 2000000}
 ];
 
 var cano = [ 
-    { x: 900, y: 480, width: 70, height: 120 },  
-    { x: 1500, y: 480, width: 70, height: 120 }, 
-    { x: 2100, y: 480, width: 70, height: 120},
-    { x: 2356, y: 320, width: 70, height: 130},
-    { x: 2856, y: 320, width: 70, height: 130},
-    { x: 3700, y: 480, width: 70, height: 120 },
-    { x: 4100, y: 250, width: 80, height: 350 },
-    { x: 4750, y: 480, width: 70, height: 120 },
-    { x: 5400, y: 480, width: 70, height: 120 },
-    { x: 5900, y: 300, width: 80, height: 300 },
-];
+    { x: 900, y: 400, width: 50, height: 150 },  
+    { x: 1200, y: 400, width: 50, height: 150 }, 
+    { x: 2000, y: 400, width: 50, height: 150 } 
+]
 
-
-
-function desenho() {
+function draw() {
     
     ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
@@ -46,13 +49,13 @@ function desenho() {
 
     // Desenha as plataformas
     ctx.fillStyle = "black";
-    plataforma.forEach(function(platform) {
+    platforms.forEach(function(platform) {
         ctx.fillRect(platform.x - camera.x, platform.y, platform.width, platform.height);
     });
 
-    
+    ctx.fillStyle = "green";
     cano.forEach(function(cano) {
-        ctx.drawImage(canoIMG, cano.x - camera.x, cano.y, cano.width, cano.height);
+        ctx.fillRect(cano.x - camera.x, cano.y, cano.width, cano.height);
     });
 
 

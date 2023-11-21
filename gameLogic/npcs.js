@@ -1,13 +1,9 @@
 let updating = true;
 
-var tempoLimite = 20; 
-var tempoRestante = tempoLimite;
-var cronometro; 
-
 var npcs = [
     {
-        x: 530,
-        y: 402,
+        x: 300,
+        y: 502,
         width: 32,
         height: 48,
         quiz: {
@@ -16,10 +12,31 @@ var npcs = [
             correctAnswer: "Trompas de Falópio"
         }
     },
-    
     {
-        x: 1430,
-        y: 552,
+        x: 900,
+        y: 502,
+        width: 32,
+        height: 48,
+        quiz: {
+            question: "Qual hormônio é responsável pelo desenvolvimento dos caracteres sexuais secundários femininos?",
+            options: ["Testosterona", "Estrogênio", "Progesterona", "Prolactina"],
+            correctAnswer: "Estrogênio"
+        }
+    },
+    {
+        x: 1290,
+        y: 150,
+        width: 32,
+        height: 48,
+        quiz: {
+            question: "Qual é a função principal do útero no sistema reprodutor feminino?",
+            options: ["Produzir óvulos", "Armazenar espermatozoides", "Desenvolver o feto durante a gestação", "Produzir hormônios sexuais"],
+            correctAnswer: "Desenvolver o feto durante a gestação"
+        }
+    },
+    {
+        x: 1600,
+        y: 502,
         width: 32,
         height: 48,
         quiz: {
@@ -29,8 +46,8 @@ var npcs = [
         }
     },
     {
-        x: 1900,
-        y: 552,
+        x: 2100,
+        y: 502,
         width: 32,
         height: 48,
         quiz: {
@@ -41,19 +58,7 @@ var npcs = [
     },
     {
         x: 2650,
-        y: 400,
-        width: 32,
-        height: 48,
-        quiz: {
-            question: "Qual o papel da progesterona no ciclo menstrual?",
-            options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
-            correctAnswer: "Preparar o revestimento do útero para a gravidez"
-        }
-    },
-
-    {
-        x: 3150,
-        y: 200,
+        y: 350,
         width: 32,
         height: 48,
         quiz: {
@@ -63,8 +68,8 @@ var npcs = [
         }
     },
     {
-        x: 3300,
-        y: 552,
+        x: 2900,
+        y: 502,
         width: 32,
         height: 48,
         quiz: {
@@ -86,7 +91,7 @@ var npcs = [
     },
     {
         x: 4350,
-        y: 100,
+        y: 50,
         width: 32,
         height: 48,
         quiz: {
@@ -96,20 +101,8 @@ var npcs = [
         }
     },
     {
-        x: 5275,
-        y: 552,
-        width: 32,
-        height: 48,
-        quiz: {
-            question: "Qual o papel da progesterona no ciclo menstrual?",
-            options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
-            correctAnswer: "Preparar o revestimento do útero para a gravidez"
-        }
-    },
-
-    {
-        x: 5800,
-        y: 552,
+        x: 4575,
+        y: 350,
         width: 32,
         height: 48,
         quiz: {
@@ -120,68 +113,28 @@ var npcs = [
     }
 ];
 
-var timer = document.getElementById("timer");
-
-function startCronometro() {
-    cronometro = setInterval(function() {
-        tempoRestante--;
-
-        
-        timer.innerText = `Tempo Restante: ${tempoRestante}s`
-
-        if (tempoRestante <= 0) {
-            updating = true;
-            closeDialog();
-            clearInterval(cronometro);
-
-            player.lives--;
-            tempoRestante = tempoLimite;
-
-            // Verifica se o jogador perdeu o jogo
-            if (player.lives === 0) {
-                endGame();
-            } else {
-                showDialog('Tempo esgotado! Vidas restantes: ' + player.lives);
-                
-            }
-        }
-    }, 1000); // Atualiza a cada segundo
-}
-
-
 function showDialog(question, options) {
-    // Restaura o tempo limite
-    tempoRestante = tempoLimite;
-
     dialogText.innerHTML = question;
 
     updating =  false;
     // Limpa as opções existentes
     optionsList.innerHTML = "";
-    
-    timer.style.display = "none";
 
     // Adiciona as novas opções
-    if(options){options.forEach(function(option, index) {
-        
-        timer.style.display = "block"
+    options.forEach(function(option, index) {
         var listItem = document.createElement('li');
         listItem.innerHTML = `<button onclick="checkAnswer(${index})">${option}</button>`;
         optionsList.appendChild(listItem);
     });
-    }
+
     // Adiciona o botão de fechar
     var closeButton = document.getElementById('closeButton');
     closeButton.style.display = 'block';
 
     dialogBox.style.display = 'block';
-
-    // Inicia o cronômetro
-    
     // Desativa as teclas durante o diálogo
     keys = {};
 }
-
 
 function closeDialog() {
 
@@ -194,18 +147,18 @@ function closeDialog() {
     keys = {};
 
     // Verifica se o jogador ganhou ou perdeu o jogo
-    if (player.lives === 0 || player.correctAnswers === 10) {
+    if (player.lives === 0 || player.correctAnswers === 3) {
         endGame();
     }
 }
 
 function checkAnswer(index) {
-
-    clearInterval(cronometro);  
     var interactingNPC 
     npcs.forEach(npc => {
         interactingNPC = npc
-       
+        if (checkCollision(player, npc)) {
+            
+        }
     })
 
     
@@ -224,7 +177,7 @@ function checkAnswer(index) {
             interactingNPC.answered = true; // Marca o NPC como respondido
 
             // Verifica se o jogador ganhou o jogo
-            if (player.correctAnswers === 10) {
+            if (player.correctAnswers === 3) {
                 endGame();
             } else {
                 showDialog('Resposta correta!');
@@ -243,5 +196,4 @@ function checkAnswer(index) {
             }
         }
     }
-    
 }

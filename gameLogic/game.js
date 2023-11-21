@@ -6,18 +6,16 @@ var personagem = new Image();
 var perguntas = new Image();
 var inimigosA = new Image();
 var inimigos = new Image();
-var canoIMG = new Image();
 
-backgroundImage.src = "imagens/fundo1.png";
+backgroundImage.src = "imagens/fundo.png";
 personagem.src = "imagens/ovulo.png";
 perguntas.src = "imagens/mario-sprite.png";
 inimigos.src = "imagens/diu.png";
 inimigosA.src = "imagens/anticoncepcional.png";
-canoIMG.src = "imagens/pipe.png"
 
 var player = {
-    x: 0,
-    y: 550,
+    x: 125,
+    y: 50,
     width: 50,
     height: 50,
     speed: 5,
@@ -28,8 +26,7 @@ var player = {
     lives: 3,
     correctAnswers: 0,
     gameOver: false,
-    gameWon: false,
-    
+    gameWon: false
 };
 
 var dialogBox = document.getElementById('dialogBox');
@@ -48,22 +45,17 @@ function endGame() {
     player.gameOver = true;
 
     // Mostra a mensagem final
-    var endMessage = player.correctAnswers === 10 ? 'Parabéns! Você ganhou o jogo!' : 'Você perdeu o jogo!';
+    var endMessage = player.correctAnswers === 3 ? 'Parabéns! Você ganhou o jogo!' : 'Você perdeu o jogo!';
     showDialog(endMessage);
 
     // Adiciona o botão de retornar ao menu
     var returnToMenuButton = document.createElement('button');
-    var jogarNov = document.createElement('button')
-    jogarNov.innerText = 'Jogar Novamente'
-    jogarNov.onclick = function(){
-        location.reload()
-    }
     returnToMenuButton.innerText = 'Retornar ao Menu';
     returnToMenuButton.onclick = function() {
         window.location.href = 'menu.html';
     };
     optionsList.appendChild(returnToMenuButton);
-    optionsList.appendChild(jogarNov);
+
     // ... (seu código existente)
 }
 
@@ -71,8 +63,8 @@ function endGame() {
 
 function gameLoop() {
     if (updating){
-        atualiza();}
-    desenho();
+        update();}
+    draw();
     requestAnimationFrame(gameLoop);
 }
 
