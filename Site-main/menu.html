@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    
+    
+    <link rel="stylesheet" href="menu.css" />
+    
+    <title>Ovum Journeys</title>
+    
+  </head>
+  <body>
+  <audio controls autoplay loop src="audio/audio.mp3" id = "music" display = "none" style= "width: 0%;"></audio>
+
+
+  <script>
+    const music = document.querySelector('#music')
+    window.addEventListener('click', () => {
+  music.play()
+})
+
+
+    function redirectToIndex() {
+        window.location.href = 'index.html';
+    }
+</script>
+
+    
+    <div class="menuContainer">
+      <div class="centerContainer">
+        <div class="title">
+          <img src="imagens/titulo2.png" alt="Clitoris Adventure" class="title" />
+        </div>
+        <menu class="menu">
+            <div class="buttons" onclick="redirectToIndex()">Jogar</div>
+          <div class="buttons" onclick="callOverlay('settings')">
+            Configurações
+          </div>
+          <div class="buttons" onclick="callOverlay('credit')">Créditos</div>
+        </menu>
+      </div>
+      <div class="copyright"></div>
+    </div>
+
+    <!-- / Menu start \ -->
+
+  
+
+  </body>
+</html>

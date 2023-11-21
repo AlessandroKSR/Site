@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platformer Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <audio controls autoplay loop src="audio/audio.mp3" id = "music" display = "none" style= "width:0%;"></audio>
+
+
+  <script>
+    const music = document.querySelector('#music')
+    window.addEventListener('click', () => {
+  music.play()
+})
+</script>
+
+    <img id="backgroundImage" src="imagens/fundo.png" style="display: none;">
+    <canvas id="gameCanvas" width="1400" height="700"></canvas>
+    
+
+<div id="dialogBox">
+    
+    <span id="closeButton" onclick="closeDialog()">X</span>
+    <p id="dialogText"></p>
+    <ul id="optionsList"></ul>
+    <span id = "timer">Tempo Restante: 20s</span>
+</div>
+
+<script src="gameLogic/desenho.js"></script>
+<script src="gameLogic/movimento.js"></script>
+<script src="gameLogic/npcs.js"></script>
+<script src="gameLogic/inimigos.js"></script>
+<script src="gameLogic/game.js"></script>
+
+</body>
+</html>

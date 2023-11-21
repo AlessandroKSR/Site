@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #da9ab8
+}
+
+canvas {
+    display: block;
+    background-color: #FFF; /* Cor de fundo branco para o canvas */
+    margin: 0 auto; /* Centraliza o canvas */
+    border: 5px solid #000; /* Borda preta ao redor do canvas */
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+}
+
+li{
+    
+}
+
+ul button{
+    margin-bottom: 1rem;
+    font-family: "Pacifico", cursive;
+}
+
+
+
+#dialogBox {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFF;
+    padding: 20px;
+    border: 2px solid #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    font-family: "Pacifico", cursive;
+}
+
+#closeButton {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+    color: #000; /* Cor do texto do botão */
+    font-weight: bold;
+    font-family: "Pacifico", cursive;
+}
+
+#timer{
+    float: right;
+    display: none;
+}
+
+button {
+    background-color: #c91e6da9; /* Cor de fundo verde */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049; /* Cor de fundo verde mais escura ao passar o mouse */
+}
