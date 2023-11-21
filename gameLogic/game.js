@@ -60,7 +60,7 @@ function endGame() {
     }
     returnToMenuButton.innerText = 'Retornar ao Menu';
     returnToMenuButton.onclick = function() {
-        window.location.href = 'menu.html';
+        window.location.href = 'index.html';
     };
     optionsList.appendChild(returnToMenuButton);
     optionsList.appendChild(jogarNov);
