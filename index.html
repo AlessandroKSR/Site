@@ -13,41 +13,32 @@
     
   </head>
   <body>
-  <audio controls autoplay loop src="audio/audio.mp3" id = "music" display = "none" style= "width: 0%;"></audio>
+  <audio controls autoplay loop src="audio/audio.mp3" display = "none" style= "width: 0%;"></audio>
 
 
   <script>
-    const music = document.querySelector('#music')
-    window.addEventListener('click', () => {
-  music.play()
-})
-
-
     function redirectToIndex() {
         window.location.href = 'jogo.html';
     }
-</script>
+    function redirectTo() {
+    window.location.href = 'historia.html';
+    window.location.href = 'creditos.html';
+    }
+  </script>
 
     
     <div class="menuContainer">
       <div class="centerContainer">
+
         <div class="title">
-          <img src="imagens/titulo2.png" alt="Clitoris Adventure" class="title" />
+          <img src="imagens/titulo2.png" alt="Ovums Journey's" class="title" />
         </div>
+
         <menu class="menu">
-            <div class="buttons" onclick="redirectToIndex()">Jogar</div>
-          <div class="buttons" onclick="callOverlay('settings')">
-            Configurações
-          </div>
-          <div class="buttons" onclick="callOverlay('credit')">Créditos</div>
+          <div class="buttons" onclick="redirectToIndex()">Jogar</div>
+          <div class="buttons" onclick="redirectTo()">História</div>
+          <div class="buttons" onclick="redirectTo()">Créditos</div>
         </menu>
-      </div>
-      <div class="copyright"></div>
-    </div>
-
-    <!-- / Menu start \ -->
-
-  
 
   </body>
 </html>
