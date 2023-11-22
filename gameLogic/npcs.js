@@ -1,4 +1,4 @@
-let updating = true;
+let atualizando = true;
 
 var tempoLimite = 20; 
 var tempoRestante = tempoLimite;
@@ -130,18 +130,18 @@ function startCronometro() {
         timer.innerText = `Tempo Restante: ${tempoRestante}s`
 
         if (tempoRestante <= 0) {
-            updating = true;
+            atualizando = true;
             closeDialog();
             clearInterval(cronometro);
 
-            player.lives--;
+            player.vidas--;
             tempoRestante = tempoLimite;
 
             // Verifica se o jogador perdeu o jogo
-            if (player.lives === 0) {
-                endGame();
+            if (player.vidas === 0) {
+                fimJogo();
             } else {
-                showDialog('Tempo esgotado! Vidas restantes: ' + player.lives);
+                showDialog('Tempo esgotado! Vidas restantes: ' + player.vidas);
                 
             }
         }
@@ -153,11 +153,11 @@ function showDialog(question, options) {
     // Restaura o tempo limite
     tempoRestante = tempoLimite;
 
-    dialogText.innerHTML = question;
+    textoDialogo.innerHTML = question;
 
-    updating =  false;
+    atualizando =  false;
     // Limpa as opções existentes
-    optionsList.innerHTML = "";
+    opcoes.innerHTML = "";
     
     timer.style.display = "none";
 
@@ -167,35 +167,35 @@ function showDialog(question, options) {
         timer.style.display = "block"
         var listItem = document.createElement('li');
         listItem.innerHTML = `<button onclick="checkAnswer(${index})">${option}</button>`;
-        optionsList.appendChild(listItem);
+        opcoes.appendChild(listItem);
     });
     }
     // Adiciona o botão de fechar
     var closeButton = document.getElementById('closeButton');
     closeButton.style.display = 'block';
 
-    dialogBox.style.display = 'block';
+    caixaDialogo.style.display = 'block';
 
     // Inicia o cronômetro
     
     // Desativa as teclas durante o diálogo
-    keys = {};
+    teclas = {};
 }
 
 
 function closeDialog() {
 
-    updating = true;
+    atualizando = true;
     var closeButton = document.getElementById('closeButton');
     closeButton.style.display = 'none';
 
-    dialogBox.style.display = 'none';
+    caixaDialogo.style.display = 'none';
     // Reativa as teclas após o diálogo
-    keys = {};
+    teclas = {};
 
     // Verifica se o jogador ganhou ou perdeu o jogo
-    if (player.lives === 0 || player.correctAnswers === 10) {
-        endGame();
+    if (player.vidas === 0 || player.respostas === 10) {
+        fimJogo();
     }
 }
 
@@ -217,29 +217,29 @@ function checkAnswer(index) {
             
 
             // Incrementa respostas corretas
-            player.correctAnswers++;
+            player.respostas++;
             
-            console.log('Respostas corretas:', player.correctAnswers);
+            console.log('Respostas corretas:', player.respostas);
 
             interactingNPC.answered = true; // Marca o NPC como respondido
 
             // Verifica se o jogador ganhou o jogo
-            if (player.correctAnswers === 10) {
-                endGame();
+            if (player.respostas === 10) {
+                fimJogo();
             } else {
                 showDialog('Resposta correta!');
             }
         } else {
             // Decrementa vidas
-            player.lives--;
+            player.vidas--;
 
-            console.log('Resposta incorreta. Vidas restantes:', player.lives);
+            console.log('Resposta incorreta. Vidas restantes:', player.vidas);
 
             // Verifica se o jogador perdeu o jogo
-            if (player.lives === 0) {
-                endGame();
+            if (player.vidas === 0) {
+                fimJogo();
             } else {
-                showDialog('Resposta incorreta! Vidas restantes: ' + player.lives);
+                showDialog('Resposta incorreta! Vidas restantes: ' + player.vidas);
             }
         }
     }

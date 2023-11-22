@@ -34,14 +34,19 @@ function desenho() {
     
     ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
-    drawEnemies();
+    enemies.forEach(function(enemy) {
+        
+        if (enemy.vivo) {
+            ctx.drawImage(inimigos, enemy.x - camera.x, enemy.y, enemy.width, enemy.height);
+        }
+    });
 
     // Desenha o jogador
     ctx.drawImage(personagem, player.x - camera.x, player.y, player.width, player.height);
     
     // Desenha os NPCs
     npcs.forEach(function(npc) {
-        ctx.drawImage(perguntas, npc.x - camera.x, npc.y, npc.width, npc.height);
+        ctx.drawImage(npcsImg, npc.x - camera.x, npc.y, npc.width, npc.height);
     });
 
     // Desenha as plataformas
@@ -52,13 +57,13 @@ function desenho() {
 
     
     cano.forEach(function(cano) {
-        ctx.drawImage(canoIMG, cano.x - camera.x, cano.y, cano.width, cano.height);
+        ctx.drawImage(canoImg, cano.x - camera.x, cano.y, cano.width, cano.height);
     });
 
 
     // Exibe vidas e respostas corretas
     ctx.font = "20px arial";
     ctx.fillStyle = "white";
-    ctx.fillText("Vidas: " + player.lives, 20, 30);
-    ctx.fillText("Respostas Corretas: " + player.correctAnswers, 20, 60);
+    ctx.fillText("Vidas: " + player.vidas, 20, 30);
+    ctx.fillText("Respostas Corretas: " + player.respostas, 20, 60);
 }
