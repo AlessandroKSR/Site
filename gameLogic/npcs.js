@@ -131,7 +131,7 @@ function startCronometro() {
 
         if (tempoRestante <= 0) {
             atualizando = true;
-            closeDialog();
+            fecharDialogo();
             clearInterval(cronometro);
 
             player.vidas--;
@@ -141,7 +141,7 @@ function startCronometro() {
             if (player.vidas === 0) {
                 fimJogo();
             } else {
-                showDialog('Tempo esgotado! Vidas restantes: ' + player.vidas);
+                mostrarDialogo('Tempo esgotado! Vidas restantes: ' + player.vidas);
                 
             }
         }
@@ -149,7 +149,7 @@ function startCronometro() {
 }
 
 
-function showDialog(question, options) {
+function mostrarDialogo(question, options) {
     // Restaura o tempo limite
     tempoRestante = tempoLimite;
 
@@ -183,7 +183,7 @@ function showDialog(question, options) {
 }
 
 
-function closeDialog() {
+function fecharDialogo() {
 
     atualizando = true;
     var closeButton = document.getElementById('closeButton');
@@ -199,21 +199,21 @@ function closeDialog() {
     }
 }
 
-function checkAnswer(index) {
+function checarResposta(index) {
 
     clearInterval(cronometro);  
-    var interactingNPC 
+    var interagindo_NPC 
     npcs.forEach(npc => {
-        interactingNPC = npc
+        interagindo_NPC = npc
        
     })
 
     
 
-    if (interactingNPC) {
-        var selectedAnswer = interactingNPC.quiz.options[index];
+    if (interagindo_NPC) {
+        var respostaSelecionada = interagindo_NPC.quiz.options[index];
 
-        if (selectedAnswer === interactingNPC.quiz.correctAnswer) {
+        if (respostaSelecionada === interagindo_NPC.quiz.correctAnswer) {
             
 
             // Incrementa respostas corretas
@@ -221,13 +221,13 @@ function checkAnswer(index) {
             
             console.log('Respostas corretas:', player.respostas);
 
-            interactingNPC.answered = true; // Marca o NPC como respondido
+            interagindo_NPC.answered = true; // Marca o NPC como respondido
 
             // Verifica se o jogador ganhou o jogo
             if (player.respostas === 10) {
                 fimJogo();
             } else {
-                showDialog('Resposta correta!');
+                mostrarDialogo('Resposta correta!');
             }
         } else {
             // Decrementa vidas
@@ -239,7 +239,7 @@ function checkAnswer(index) {
             if (player.vidas === 0) {
                 fimJogo();
             } else {
-                showDialog('Resposta incorreta! Vidas restantes: ' + player.vidas);
+                mostrarDialogo('Resposta incorreta! Vidas restantes: ' + player.vidas);
             }
         }
     }
