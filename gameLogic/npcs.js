@@ -166,13 +166,13 @@ function mostrarDialogo(question, options) {
         
         timer.style.display = "block"
         var listItem = document.createElement('li');
-        listItem.innerHTML = `<button onclick="checkAnswer(${index})">${option}</button>`;
+        listItem.innerHTML = `<button onclick="checarResposta(${index})">${option}</button>`;
         opcoes.appendChild(listItem);
     });
     }
     // Adiciona o botão de fechar
-    var closeButton = document.getElementById('closeButton');
-    closeButton.style.display = 'block';
+    var botaoFechar = document.getElementById('closeButton');
+    botaoFechar.style.display = 'block';
 
     caixaDialogo.style.display = 'block';
 
@@ -186,8 +186,8 @@ function mostrarDialogo(question, options) {
 function fecharDialogo() {
 
     atualizando = true;
-    var closeButton = document.getElementById('closeButton');
-    closeButton.style.display = 'none';
+    var botaoFechar = document.getElementById('closeButton');
+    botaoFechar.style.display = 'none';
 
     caixaDialogo.style.display = 'none';
     // Reativa as teclas após o diálogo
