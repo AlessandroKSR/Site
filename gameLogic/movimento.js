@@ -83,13 +83,6 @@ function atualiza() {
         player.velocityY += player.gravity/(cano.length + npcs.length);
        
     }
-    if(colisao(player, npcs[i]) && player.x < npcs[i].x + npcs[i].width * 0.5){
-        player.x = npcs[i].x - player.height;
-    }
-
-    if(colisao(player, npcs[i]) && player.x > npcs[i].x + npcs[i].width * 0.5){
-        player.x = npcs[i].x + npcs[i].width
-    }
 };
    
     

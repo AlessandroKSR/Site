@@ -10,7 +10,7 @@ var canoIMG = new Image();
 
 backgroundImage.src = "imagens/fundo1.png";
 personagem.src = "imagens/ovulo.png";
-perguntas.src = "imagens/Ovário.png";
+perguntas.src = "imagens/eduardo_costa.png";
 inimigos.src = "imagens/diu.png";
 inimigosA.src = "imagens/anticoncepcional.png";
 canoIMG.src = "imagens/pipe.png";

@@ -7,9 +7,9 @@ var cronometro;
 var npcs = [
     {
         x: 530,
-        y: 402,
-        width: 40,
-        height: 40,
+        y: 352,
+        width: 59,
+        height: 100,
         quiz: {
             question: "Onde ocorre a fertilização no sistema reprodutor feminino?",
             options: ["Útero", "Ovários", "Trompas de Falópio", "Vagina"],
@@ -19,9 +19,9 @@ var npcs = [
     
     {
         x: 1430,
-        y: 552,
-        width: 40,
-        height: 40,
+        y: 502,
+        width: 59,
+        height: 100,
         quiz: {
             question: "O que acontece durante o processo de ovulação?",
             options: ["Liberação de um óvulo pelos ovários", "Fertilização do óvulo pelo espermatozoide", "Implantação do embrião no útero", "Menstruação"],
@@ -30,9 +30,9 @@ var npcs = [
     },
     {
         x: 1900,
-        y: 552,
-        width: 40,
-        height: 40,
+        y: 502,
+        width: 59,
+        height: 100,
         quiz: {
             question: "Qual o papel da progesterona no ciclo menstrual?",
             options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
@@ -41,9 +41,9 @@ var npcs = [
     },
     {
         x: 2650,
-        y: 400,
-        width: 40,
-        height: 40,
+        y: 350,
+        width: 59,
+        height: 100,
         quiz: {
             question: "Qual o papel da progesterona no ciclo menstrual?",
             options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
@@ -53,9 +53,9 @@ var npcs = [
 
     {
         x: 3150,
-        y: 200,
-        width: 40,
-        height: 40,
+        y: 150,
+        width: 59,
+        height: 100,
         quiz: {
             question: "Qual o papel da progesterona no ciclo menstrual?",
             options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
@@ -64,9 +64,9 @@ var npcs = [
     },
     {
         x: 3300,
-        y: 552,
-        width: 40,
-        height: 40,
+        y: 502,
+        width: 59,
+        height: 100,
         quiz: {
             question: "Qual o papel da progesterona no ciclo menstrual?",
             options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
@@ -75,9 +75,9 @@ var npcs = [
     },
     {
         x: 3880,
-        y: 300,
-        width: 40,
-        height: 40,
+        y: 250,
+        width: 59,
+        height: 100,
         quiz: {
             question: "Qual o papel da progesterona no ciclo menstrual?",
             options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
@@ -86,9 +86,9 @@ var npcs = [
     },
     {
         x: 4350,
-        y: 100,
-        width: 40,
-        height: 40,
+        y: 50,
+        width: 59,
+        height: 100,
         quiz: {
             question: "Qual o papel da progesterona no ciclo menstrual?",
             options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
@@ -97,9 +97,9 @@ var npcs = [
     },
     {
         x: 5275,
-        y: 552,
-        width: 40,
-        height: 40,
+        y: 502,
+        width: 59,
+        height: 100,
         quiz: {
             question: "Qual o papel da progesterona no ciclo menstrual?",
             options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
@@ -109,9 +109,9 @@ var npcs = [
 
     {
         x: 5800,
-        y: 552,
-        width: 40,
-        height: 40,
+        y: 502,
+        width: 59,
+        height: 100,
         quiz: {
             question: "Qual o papel da progesterona no ciclo menstrual?",
             options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
@@ -214,7 +214,7 @@ function checkAnswer(index) {
         var selectedAnswer = interactingNPC.quiz.options[index];
 
         if (selectedAnswer === interactingNPC.quiz.correctAnswer) {
-            console.log('Resposta correta!');
+            
 
             // Incrementa respostas corretas
             player.correctAnswers++;
