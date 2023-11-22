@@ -43,10 +43,9 @@ body {
   
 }
 .centerContainer menu .buttons:hover {
-  background: linear-gradient(to top left, #ff7875, #fc5e5b);
-  font-size: 2.5rem;
-  transform: rotate(-1deg);
-  transition: 1s;
+    background: #da9ab8;
+    transition: 1s;
+    scale: 1.01;
 }
 .centerContainer menu .buttons{
   margin-bottom: 1rem;

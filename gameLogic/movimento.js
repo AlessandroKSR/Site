@@ -9,27 +9,20 @@ function colisao(objA, objB) {
 
 
 
-
-
 function atualiza() {
     // Impede a atualização se o jogo tiver terminado
-    if (player.gameOver || player.gameWon) {
-        return;
-    }
-    if(player.y > 1000)
-    {
-        endGame();
-    }
-    checkEnemyCollision();
+    
 
-    updateEnemies();
+    colisaoInimigo();
 
-    if (keys['a'] || keys['A']) {
-        player.x -= player.speed;
+    atualizaInimigo();
+
+    if (teclas['a'] || teclas['A']) {
+        player.x -= player.velocidade;
     }
 
-    if (keys['d'] || keys['D']) {
-        player.x += player.speed;
+    if (teclas['d'] || teclas['D']) {
+        player.x += player.velocidade;
     }
 
    for(var i = 0; i < cano.length; i++){
@@ -37,20 +30,20 @@ function atualiza() {
         
         if(colisao(player, cano[i]) && player.y <  cano[i].y){
           
-          player.velocityY = 0;
+          player.velocidadeY = 0;
           player.y = cano[i].y - player.height;
-          player.jumping = false;
+          player.pulando = false;
           noChao = true;
 
-          if ((keys['w'] || keys['W']) && !player.jumping && noChao) {
-            player.velocityY = -player.jumpHeight;
-            player.jumping = true;
+          if ((teclas['w'] || teclas['W']) && !player.pulando && noChao) {
+            player.velocidadeY = -player.alturaPulo;
+            player.pulando = true;
             noChao = false;
         }
           break;
 
         }else{
-            player.velocityY += player.gravity/(cano.length + npcs.length) ;
+            player.velocidadeY += player.gravidade/(cano.length + npcs.length) ;
            
         }
         if(colisao(player, cano[i]) && player.x < cano[i].x + cano[i].width * 0.5){
@@ -67,20 +60,20 @@ function atualiza() {
         
     if(colisao(player, npcs[i]) && player.y <  npcs[i].y){
       
-      player.velocityY = 0;
+      player.velocidadeY = 0;
       player.y = npcs[i].y - player.height;
-      player.jumping = false;
+      player.pulando = false;
       noChao = true;
 
-      if ((keys['w'] || keys['W']) && !player.jumping && noChao) {
-        player.velocityY = -player.jumpHeight;
-        player.jumping = true;
+      if ((teclas['w'] || teclas['W']) && !player.pulando && noChao) {
+        player.velocidadeY = -player.alturaPulo;
+        player.pulando = true;
         noChao = false;
     }
       break;
 
     }else{
-        player.velocityY += player.gravity/(cano.length + npcs.length);
+        player.velocidadeY += player.gravidade/(cano.length + npcs.length);
        
     }
 };
@@ -88,22 +81,22 @@ function atualiza() {
     
    
     
-player.y += player.velocityY;
+player.y += player.velocidadeY;
  
     
     // Verifica se o jogador está no chão
     var noChao = false;
-    plataforma.forEach(function(platform) {
+    plataforma.forEach(function(plataforma) {
         if (
-            player.x < platform.x + platform.width &&
-            player.x + player.width > platform.x &&
-            player.y + player.height > platform.y &&
-            player.y < platform.y + platform.height
+            player.x < plataforma.x + plataforma.width &&
+            player.x + player.width > plataforma.x &&
+            player.y + player.height > plataforma.y &&
+            player.y < plataforma.y + plataforma.height
         ) {
             // Colisão com a plataforma
-            player.y = platform.y - player.height;
-            player.jumping = false;
-            player.velocityY = 0;
+            player.y = plataforma.y - player.height;
+            player.pulando = false;
+            player.velocidadeY = 0;
             noChao = true;
         }
     });
@@ -116,12 +109,12 @@ player.y += player.velocityY;
             ) {
                 if(barreira.x == -200)
                 {
-                    player.velocityY = 0;
+                    player.velocidadeY = 0;
                     player.x = player.x + 5;
                 }
                 else
                 {
-                    player.velocityY = 0;
+                    player.velocidadeY = 0;
                     player.x = player.x - 5;
                 }
             }
@@ -129,14 +122,14 @@ player.y += player.velocityY;
 
     
     if (!noChao) {
-        player.jumping = true;
+        player.pulando = true;
     }
 
     // Pulo
     // Pulo
-if ((keys['w'] || keys['W']) && !player.jumping && noChao) {
-    player.velocityY = -player.jumpHeight;
-    player.jumping = true;
+if ((teclas['w'] || teclas['W']) && !player.pulando && noChao) {
+    player.velocidadeY = -player.alturaPulo;
+    player.pulando = true;
 }
 
 
@@ -153,7 +146,7 @@ if ((keys['w'] || keys['W']) && !player.jumping && noChao) {
         // Verifica se o jogador está dentro do raio de interação
         if (distancia < raio) {
             // Verifica se a tecla Enter foi pressionada para interagir
-            if (keys['Enter']) {
+            if (teclas['Enter']) {
                 showDialog(npc.quiz.question, npc.quiz.options);
                 startCronometro(cronometro);
             }
