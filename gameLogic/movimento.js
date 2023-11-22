@@ -147,7 +147,7 @@ if ((teclas['w'] || teclas['W']) && !player.pulando && noChao) {
         if (distancia < raio) {
             // Verifica se a tecla Enter foi pressionada para interagir
             if (teclas['Enter']) {
-                showDialog(npc.quiz.question, npc.quiz.options);
+                mostrarDialogo(npc.quiz.question, npc.quiz.options);
                 startCronometro(cronometro);
             }
         }
