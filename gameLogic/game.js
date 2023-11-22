@@ -55,7 +55,7 @@ function fimJogo() {
     }
     
     
-    showDialog(msgFinal);
+    mostrarDialogo(msgFinal);
 
     // Adiciona o botão de retornar ao menu
     var returnToMenuButton = document.createElement('button');
