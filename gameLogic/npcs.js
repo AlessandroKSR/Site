@@ -14,8 +14,7 @@ var npcs = [
             question: "Onde ocorre a fertilização no sistema reprodutor feminino?",
             options: ["Útero", "Ovários", "Trompas de Falópio", "Vagina"],
             correctAnswer: "Trompas de Falópio"
-        }, 
-        respondido: false
+        }
     },
     
     {
@@ -27,8 +26,7 @@ var npcs = [
             question: "O que acontece durante o processo de ovulação?",
             options: ["Liberação de um óvulo pelos ovários", "Fertilização do óvulo pelo espermatozoide", "Implantação do embrião no útero", "Menstruação"],
             correctAnswer: "Liberação de um óvulo pelos ovários"
-        }, 
-        respondido: false
+        }
     },
     {
         x: 1900,
@@ -39,8 +37,7 @@ var npcs = [
             question: "Qual o papel da progesterona no ciclo menstrual?",
             options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
             correctAnswer: "Preparar o revestimento do útero para a gravidez"
-        }, 
-        respondido: false
+        }
     },
     {
         x: 2650,
@@ -51,8 +48,7 @@ var npcs = [
             question: "Qual o papel da progesterona no ciclo menstrual?",
             options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
             correctAnswer: "Preparar o revestimento do útero para a gravidez"
-        }, 
-        respondido: false
+        }
     },
 
     {
@@ -64,8 +60,7 @@ var npcs = [
             question: "Qual o papel da progesterona no ciclo menstrual?",
             options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
             correctAnswer: "Preparar o revestimento do útero para a gravidez"
-        }, 
-        respondido: false
+        }
     },
     {
         x: 3300,
@@ -76,8 +71,7 @@ var npcs = [
             question: "Qual o papel da progesterona no ciclo menstrual?",
             options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
             correctAnswer: "Preparar o revestimento do útero para a gravidez"
-        }, 
-        respondido: false
+        }
     },
     {
         x: 3880,
@@ -88,8 +82,7 @@ var npcs = [
             question: "Qual o papel da progesterona no ciclo menstrual?",
             options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
             correctAnswer: "Preparar o revestimento do útero para a gravidez"
-        }, 
-        respondido: false
+        }
     },
     {
         x: 4350,
@@ -100,8 +93,7 @@ var npcs = [
             question: "Qual o papel da progesterona no ciclo menstrual?",
             options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
             correctAnswer: "Preparar o revestimento do útero para a gravidez"
-        }, 
-        respondido: false
+        }
     },
     {
         x: 5275,
@@ -112,8 +104,7 @@ var npcs = [
             question: "Qual o papel da progesterona no ciclo menstrual?",
             options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
             correctAnswer: "Preparar o revestimento do útero para a gravidez"
-        }, 
-        respondido: false
+        }
     },
 
     {
@@ -125,16 +116,13 @@ var npcs = [
             question: "Qual o papel da progesterona no ciclo menstrual?",
             options: ["Estimular o desenvolvimento dos órgãos sexuais femininos", "Induzir a ovulação", "Preparar o revestimento do útero para a gravidez", "Inibir a produção de óvulos pelos ovários"],
             correctAnswer: "Preparar o revestimento do útero para a gravidez"
-        }, 
-        respondido: false
+        }
     }
 ];
 
 var timer = document.getElementById("timer");
 
-function startCronometro() { // gera o cronomentro de cada pergunta
-
-    timer.innerText = `Tempo Restante: 20s`
+function startCronometro() {
     cronometro = setInterval(function() {
         tempoRestante--;
 
@@ -157,23 +145,23 @@ function startCronometro() { // gera o cronomentro de cada pergunta
                 
             }
         }
-    }, 1000); 
+    }, 1000); // Atualiza a cada segundo
 }
 
 
-function mostrarDialogo(question, options) { // abre a caixa de dialogo
+function mostrarDialogo(question, options) {
     // Restaura o tempo limite
     tempoRestante = tempoLimite;
 
     textoDialogo.innerHTML = question;
 
-    atualizando =  false; // faz com que o jogo pare ao interagir com o npc
-    
+    atualizando =  false;
+    // Limpa as opções existentes
     opcoes.innerHTML = "";
     
     timer.style.display = "none";
 
-    // adiciona as novas opções
+    // Adiciona as novas opções
     if(options){options.forEach(function(option, index) {
         
         timer.style.display = "block"
@@ -182,37 +170,36 @@ function mostrarDialogo(question, options) { // abre a caixa de dialogo
         opcoes.appendChild(listItem);
     });
     }
-    // adiciona o botão de fechar
+    // Adiciona o botão de fechar
     var botaoFechar = document.getElementById('closeButton');
     botaoFechar.style.display = 'block';
 
     caixaDialogo.style.display = 'block';
 
+    // Inicia o cronômetro
     
-    // desativa as teclas durante o diálogo
+    // Desativa as teclas durante o diálogo
     teclas = {};
 }
 
 
-function fecharDialogo() { //fecha a caixa de dialogo
+function fecharDialogo() {
 
     atualizando = true;
     var botaoFechar = document.getElementById('closeButton');
     botaoFechar.style.display = 'none';
 
-    clearInterval(cronometro);
-
     caixaDialogo.style.display = 'none';
-    
+    // Reativa as teclas após o diálogo
     teclas = {};
 
-    
-    if (player.vidas === 0 || player.respostas === 10) { // verifica se o jogador ganhou ou perdeu o jogo
+    // Verifica se o jogador ganhou ou perdeu o jogo
+    if (player.vidas === 0 || player.respostas === 10) {
         fimJogo();
     }
 }
 
-function checarResposta(index) { //verifica se o jogador respondeu a pergunta do npc 
+function checarResposta(index) {
 
     clearInterval(cronometro);  
     var interagindo_NPC 
@@ -229,7 +216,7 @@ function checarResposta(index) { //verifica se o jogador respondeu a pergunta do
         if (respostaSelecionada === interagindo_NPC.quiz.correctAnswer) {
             
 
-            
+            // Incrementa respostas corretas
             player.respostas++;
             
             console.log('Respostas corretas:', player.respostas);
