@@ -1,4 +1,4 @@
-body {
+body{
     background-color: #da9ab8
 }
 
@@ -12,18 +12,18 @@ body {
     border: 0.6rem rgb(148, 44, 104) solid;
     border-radius: 5rem;
     background: rgb(172, 74, 131);
-}
+  }
 
-.text {
+  .text{
     justify-content: center;
     margin-left: 30px;
     margin-right: 30px;
     font-size: 44px;
     font-family: "Pacifico", cursive;
     color: aliceblue;
-}
+  }
 
-.close button {
+  .close button{
     margin-top: 30px;
     margin-left: 20px;
     font-family: "Pacifico", cursive;
@@ -36,13 +36,13 @@ body {
     font-family: "Pacifico", cursive;
     color: #f2f2f2;
     cursor: pointer;
-}
+  }
 
-.text2 {
+  .text2{
     text-align-last: center;
     margin-left: 30px;
     margin-right: 30px;
     font-size: 35px;
     font-family: "Pacifico", cursive;
     color: aliceblue;
-}
+  }
