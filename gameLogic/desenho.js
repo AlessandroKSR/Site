@@ -1,9 +1,6 @@
 var plataforma = [
-    { x: -600, y: 600, width: 2000, height: 130 },
-    { x: 1400 , y: 600, width: 2000, height: 130 },
-    { x: 2500 , y: 600, width: 1800, height: 130 },
-    { x: 4600 , y: 600, width: 2000, height: 130 },
-    { x: 6500 , y: 600, width: 2000, height: 130 },
+    { x: -600, y: 600, width: 4900, height: 130 },
+    { x: 4600 , y: 600, width: 5000, height: 130 },
     { x: 400, y: 450, width: 300, height: 20},
     { x: 2290, y: 450, width: 700, height: 20 },
     { x: 3000, y: 250, width: 400, height: 20 },
@@ -14,8 +11,8 @@ var plataforma = [
 ];
 
 var barreira = [
-    { x: -200, y: 0, width: 1, height: 200000000},
-    { x: 6600, y: 0, width: 1, height: 200000000}
+    { x: -200, y: 0, width: 1, height: 20000},
+    { x: 6600, y: 0, width: 1, height: 20000}
 ];
 
 var cano = [ 
@@ -53,8 +50,9 @@ function desenho() {
     });
 
     // Desenha as plataformas
+    ctx.fillStyle = "black";
     plataforma.forEach(function(platform) {
-        ctx.drawImage(chao, platform.x - camera.x, platform.y, platform.width, platform.height);
+        ctx.fillRect(platform.x - camera.x, platform.y, platform.width, platform.height);
     });
 
     
