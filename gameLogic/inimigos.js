@@ -1,70 +1,67 @@
 var enemies = [
-    { x: 1000, y: 470, width: 80, height: 80, alive: true},
-    { x: 10000, y: 470, width: 80, height: 80, alive: true},
-    { x: 20000, y: 470, width: 80, height: 80, alive: true},
-    { x: 30000, y: 470, width: 80, height: 80, alive: true},
-    { x: 40000, y: 470, width: 80, height: 80, alive: true},
-    { x: 50000, y: 470, width: 80, height: 80, alive: true},
+    { x: 800, y: 520, width: 80, height: 80, vivo: true, velocidadeInimigo: 2},
+    { x: 1195, y: 520, width: 80, height: 80, vivo: true, velocidadeInimigo: 2},
+    { x: 1595, y: 520, width: 80, height: 80, vivo: true, velocidadeInimigo: 2},
+    { x: 2650, y: 370, width: 80, height: 80, vivo: true, velocidadeInimigo: 2},
+    { x: 2300, y: 520, width: 80, height: 80, vivo: true, velocidadeInimigo: 2},
+    { x: 3500, y: 520, width: 80, height: 80, vivo: true, velocidadeInimigo: 2},
+    { x: 5300, y: 520, width: 80, height: 80, vivo: true, velocidadeInimigo: 2},
+    { x: 5800, y: 520, width: 80, height: 80, vivo: true, velocidadeInimigo: 2},
 ];
 
-function drawEnemies() {
-
-    enemies.forEach(function(enemy) {
-        
-        if (enemy.alive) {
-            ctx.drawImage(inimigos, enemy.x - camera.x, enemy.y, enemy.width, enemy.height);
-        }
-    });
 
 
-}
 
-function checkEnemyCollision() {
-    enemies.forEach(function(enemy) {
-        if (checkCollision(player, enemy) && player.velocityY > 0 && player.y < enemy.y) {
-            // O jogador está acima do inimigo e caindo, então mata o inimigo
-            enemy.y = -500000
-            enemy.alive = false;
-            player.velocityY = -player.jumpHeight; // Faz o jogador pular após matar o inimigo
-        } else if (checkCollision(player, enemy) && enemy.alive) {
-            // O jogador colidiu com um inimigo e o inimigo está vivo, então o jogador perde uma vida
-            player.lives--;
-            showDialog('Você colidiu com um inimigo! Vidas restantes: ' + player.lives);
+function colisaoInimigo(){
+    if (player.gameOver || player.ganhou) {
+        return;
+    }
 
-            // Verifica se o jogador perdeu o jogo
-            if (player.lives === 0) {
-                endGame();
-            }
-        }
-    });
-}
-
-function updateEnemies() {
-    // Lógica do inimigo (pode ser expandida conforme necessário)
-    enemies.forEach(function(enemy) {
-        if (enemy.alive) {
-           
-            var direction = -1
-
-            
-            cano.forEach(function(cano) {
-                    if (
-                        enemies.x < enemies.x + cano.width &&
-                        enemies.x + enemies.width > cano.x &&
-                        enemies.y + enemies.height > cano.y &&
-                        enemies.y < cano.y + cano.height
-                    ) {
-                        direction = -direction;
-                    }   
-            });
-            var enemySpeed = 2; // Ajuste conforme necessário
-            if (direction > 0) {
-                enemy.x += enemySpeed;
-            } else {
-                enemy.x -= enemySpeed;
-            }
-        }
-    });
+    if(player.y > 1000)
+    {
+        fimJogo();
+    }
     
+    enemies.forEach(function(enemy) {
+        if (colisao(player, enemy) && player.velocidade > 0 && player.y < enemy.y) {
+           
+            enemy.y = -500000
+            enemy.vivo = false;
+            
+            player.velocidadeY = -player.alturaPulo;
+            player.pulando = true;
+            
+        } else if (colisao(player, enemy) && enemy.vivo) {
+            
+            player.vidas = 0;
+            
+            // Verifica se o jogador perdeu o jogo
+            if (player.vidas === 0) {
+                
+                fimJogo();
+            }
+        }
+    });
 }
+
+function atualizaInimigo() {
+    // Lógica do inimigo (pode ser expandida conforme necessário)
+    enemies.forEach(enemy=>
+        { for(var i = 0; i < cano.length; i++){
+            if(colisao(enemy, cano[i]) && enemy.x < cano[i].x + cano[i].width * 0.5){
+                enemy.velocidadeInimigo = - enemy.velocidadeInimigo;
+            }
+            if(colisao(enemy, cano[i]) && enemy.x > cano[i].x + cano[i].width * 0.5){
+                enemy.velocidadeInimigo = - enemy.velocidadeInimigo;
+            }
+            
+        }
+
+        if(enemy.vivo){
+            enemy.x += enemy.velocidadeInimigo
+        }
+    })
+}
+    
+
 
