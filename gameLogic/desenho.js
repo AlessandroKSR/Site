@@ -9,13 +9,12 @@ var plataforma = [
     { x: 3000, y: 250, width: 400, height: 20 },
     { x: 3475, y: 150, width: 300, height: 20 },
     { x: 3850, y: 350, width: 150, height: 20 },
-    { x: 4275, y: 150, width: 200, height: 20 },
-    
+    { x: 4275, y: 150, width: 200, height: 20 }, 
 ];
 
 var barreira = [
-    { x: -200, y: 0, width: 1, height: 200000000},
-    { x: 6600, y: 0, width: 1, height: 200000000}
+    { x: -200, y: 0, width: 1, height: 20000},
+    { x: 6600, y: 0, width: 1, height: 20000}
 ];
 
 var cano = [ 

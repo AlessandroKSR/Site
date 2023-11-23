@@ -56,6 +56,7 @@ function fimJogo() {
         document.getElementById('audioPlayer').play();
     }
     
+    
     mostrarDialogo(msgFinal);
 
     // Adiciona o botão de retornar ao menu
@@ -74,11 +75,14 @@ function fimJogo() {
    
 }
 
+
+
 function jogoLoop() {
     if (atualizando){
         atualiza();}
     desenho();
     requestAnimationFrame(jogoLoop);
+    console.log(player.y);
 }
 
 window.addEventListener('keydown', function(e) {
