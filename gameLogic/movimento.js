@@ -11,7 +11,6 @@ function colisao(objA, objB) {
 
 function atualiza() {
     // Impede a atualização se o jogo tiver terminado
-    
 
     colisaoInimigo();
 
