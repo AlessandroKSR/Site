@@ -6,14 +6,12 @@ var personagem = new Image();
 var npcsImg = new Image();
 var inimigos = new Image();
 var canoImg = new Image();
-var chao = new Image();
 
 backgroundImage.src = "imagens/fundo2.png";
 personagem.src = "imagens/ovulo.png";
 npcsImg.src = "imagens/eduardo_costa.png";
 inimigos.src = "imagens/diu.png";
-canoImg.src = "imagens/cano.png";
-chao.src = "imagens/chao1.png";
+canoImg.src = "imagens/pipe.png";
 
 var player = {
     x: 0,
@@ -56,6 +54,7 @@ function fimJogo() {
         document.getElementById('audioPlayer').play();
     }
     
+    
     mostrarDialogo(msgFinal);
 
     // Adiciona o botão de retornar ao menu
@@ -74,11 +73,14 @@ function fimJogo() {
    
 }
 
+
+
 function jogoLoop() {
     if (atualizando){
         atualiza();}
     desenho();
     requestAnimationFrame(jogoLoop);
+    console.log(player.y);
 }
 
 window.addEventListener('keydown', function(e) {
