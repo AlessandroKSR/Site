@@ -1,11 +1,13 @@
-body {
+body 
+{
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #da9ab8
 }
 
-canvas {
+canvas 
+{
     display: block;
     background-color: #FFF; /* Cor de fundo branco para o canvas */
     margin: 0 auto; /* Centraliza o canvas */
@@ -16,7 +18,8 @@ canvas {
     left: 50%;
 }
 
-ul{
+ul
+{
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -24,14 +27,16 @@ ul{
     padding: 0;
 }
 
-ul button{
+ul button
+{
     margin-bottom: 1rem;
     font-family: "Pacifico", cursive;
 }
 
 
 
-#dialogBox {
+#dialogBox 
+{
     display: none;
     position: absolute;
     top: 50%;
@@ -45,7 +50,8 @@ ul button{
     font-family: "Pacifico", cursive;
 }
 
-#closeButton {
+#closeButton 
+{
     position: absolute;
     top: 5px;
     left: 5px;
@@ -55,14 +61,14 @@ ul button{
     font-family: "Pacifico", cursive;
 }
 
-#timer {
+#timer 
+{
     float: right;
     display: none;
 }
 
-
-
-button {
+button 
+{
     background-color: #c91e6da9; /* Cor de fundo verde */
     color: white;
     border-width: 0.5vh;
@@ -75,7 +81,8 @@ button {
     border-radius: 5%;
 }
 
-button:hover {
+button:hover 
+{
     background: #da9ab8;
     transition: 1s;
     scale: 1.01;
