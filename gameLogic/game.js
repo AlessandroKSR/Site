@@ -11,7 +11,7 @@ backgroundImage.src = "imagens/fundo2.png";
 personagem.src = "imagens/ovulo.png";
 npcsImg.src = "imagens/eduardo_costa.png";
 inimigos.src = "imagens/diu.png";
-canoImg.src = "imagens/pipe.png";
+canoImg.src = "imagens/cano.png";
 
 var player = {
     x: 0,
