@@ -1,28 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Platformer Game</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <audio controls autoplay loop src="SnapInsta.io - Super Mario Bros. Theme Song (128 kbps).mp3" style="width: 0.00001%;"></audio>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="Imagens\ovulo.png" widght="100px" height="100px"/>
+    <link rel="stylesheet" href="menu.css" />
     
-    <img id="backgroundImage" src="imagens/fundo.png" style="display: none;">
-    <canvas id="gameCanvas" width="1400" height="700"></canvas>
+    <title>Ovum Journey's</title>
+    
+  </head>
+  <body>
+    
+  <audio controls autoplay loop src="audio/audio.mp3" display = "none" style= "width: 0%;"></audio>
 
-<div id="dialogBox">
-    <span id="closeButton" onclick="closeDialog()">X</span>
-    <p id="dialogText"></p>
-    <ul id="optionsList"></ul>
-</div>
 
-<script src="gameLogic/desenho.js"></script>
-<script src="gameLogic/movimento.js"></script>
-<script src="gameLogic/npcs.js"></script>
-<script src="gameLogic/inimigos.js"></script>
-<script src="gameLogic/game.js"></script>
+  <script>
+    function redirectToIndex() {
+        window.location.href = 'jogo.html';
+    }
+    function redirectToHistoria() {
+    window.location.href = 'historia.html';
+    }
+    function redirectToCreditos(){
+      window.location.href = 'creditos.html';
+    }
+  </script>
 
-</body>
+    
+    <div class="menuContainer">
+      <div class="centerContainer">
+
+        <div class="title">
+          <img src="imagens/titulo2.png" alt="Ovums Journey's" class="title" />
+        </div>
+
+        <menu class="menu">
+          <div class="buttons" onclick="redirectToIndex()">Jogar</div>
+          <div class="buttons" onclick="redirectToHistoria()">História</div>
+          <div class="buttons" onclick="redirectToCreditos()">Créditos</div>
+        </menu>
+      </div>
+
+  </body>
 </html>

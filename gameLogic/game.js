@@ -3,37 +3,38 @@ var ctx = canvas.getContext("2d");
 
 var backgroundImage = new Image();
 var personagem = new Image();
-var perguntas = new Image();
-var inimigosA = new Image();
+var npcsImg = new Image();
 var inimigos = new Image();
+var canoImg = new Image();
 
-backgroundImage.src = "imagens/fundo.png";
+backgroundImage.src = "imagens/fundo2.png";
 personagem.src = "imagens/ovulo.png";
-perguntas.src = "imagens/mario-sprite.png";
+npcsImg.src = "imagens/eduardo_costa.png";
 inimigos.src = "imagens/diu.png";
-inimigosA.src = "imagens/anticoncepcional.png";
+canoImg.src = "imagens/cano.png";
 
 var player = {
-    x: 125,
-    y: 50,
+    x: 0,
+    y: 550,
     width: 50,
     height: 50,
-    speed: 5,
-    jumpHeight: 15,
-    gravity: 1,
-    jumping: false,
-    velocityY: 0,
-    lives: 3,
-    correctAnswers: 0,
+    velocidade: 5,
+    alturaPulo: 15,
+    gravidade: 1,
+    pulando: false,
+    velocidadeY: 0,
+    vidas: 3,
+    respostas: 0,
     gameOver: false,
-    gameWon: false
+    ganhou: false,
+    
 };
 
-var dialogBox = document.getElementById('dialogBox');
-var dialogText = document.getElementById('dialogText');
-var optionsList = document.getElementById('optionsList');
+var caixaDialogo = document.getElementById('dialogBox');
+var textoDialogo = document.getElementById('dialogText');
+var opcoes = document.getElementById('optionsList');
 
-var keys = {};
+var teclas = {};
 
 
 var camera = {
@@ -41,41 +42,53 @@ var camera = {
     y: 0
 };
 
-function endGame() {
+
+function fimJogo() {
+
     player.gameOver = true;
 
     // Mostra a mensagem final
-    var endMessage = player.correctAnswers === 3 ? 'Parabéns! Você ganhou o jogo!' : 'Você perdeu o jogo!';
-    showDialog(endMessage);
+    var msgFinal = player.respostas === 10 ? 'Parabéns! Você ganhou o jogo!' : 'Você perdeu o jogo!';
+    if(player.respostas == 10)
+    {
+        document.getElementById('audioPlayer').play();
+    }
+    
+    
+    mostrarDialogo(msgFinal);
 
     // Adiciona o botão de retornar ao menu
     var returnToMenuButton = document.createElement('button');
+    var jogarNov = document.createElement('button')
+    jogarNov.innerText = 'Jogar Novamente'
+    jogarNov.onclick = function(){
+        location.reload()
+    }
     returnToMenuButton.innerText = 'Retornar ao Menu';
     returnToMenuButton.onclick = function() {
-        window.location.href = 'menu.html';
+        window.location.href = 'index.html';
     };
-    optionsList.appendChild(returnToMenuButton);
-
-    // ... (seu código existente)
+    opcoes.appendChild(returnToMenuButton);
+    opcoes.appendChild(jogarNov);
+   
 }
 
 
 
-function gameLoop() {
-    if (updating){
-        update();}
-    draw();
-    requestAnimationFrame(gameLoop);
+function jogoLoop() {
+    if (atualizando){
+        atualiza();}
+    desenho();
+    requestAnimationFrame(jogoLoop);
+    console.log(player.y);
 }
 
 window.addEventListener('keydown', function(e) {
-    keys[e.key] = true;
+    teclas[e.key] = true;
 });
 
 window.addEventListener('keyup', function(e) {
-    keys[e.key] = false;
+    teclas[e.key] = false;
 });
 
-
-// Inicializa o jogo
-gameLoop();
+jogoLoop();
