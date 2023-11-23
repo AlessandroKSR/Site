@@ -1,3 +1,4 @@
+
 body
 {
 background-color: #da9ab8;
@@ -22,8 +23,13 @@ overflow: hidden;
   z-index: 100;
 }
 
-.centerContainer menu 
-{
+.centerContainer .title {
+  width: 100%;
+  animation: rotate 6s infinite;
+  margin-left: 5%;
+}
+
+.centerContainer menu {
   width: 100%;
   margin-top: 1.5rem;
 
@@ -56,10 +62,12 @@ overflow: hidden;
   margin-bottom: 1rem;
 }
 
-@keyframes rotate 
-{
-  0% 
-  {
+.centerContainer menu .buttons{
+  margin-bottom: 1rem;
+}
+
+@keyframes rotate {
+  0% {
     transform: rotate(2deg);
   }
   50% 
