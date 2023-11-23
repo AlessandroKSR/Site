@@ -1,30 +1,31 @@
-function colisao(objA, objB) {  //verifica a colisao entre dois objetos
+function colisao(objA, objB) {
     return (
         objA.x < objB.x + objB.width &&
         objA.x + objA.width > objB.x &&
-        objA.y < objB.y + objB.height &&  
+        objA.y < objB.y + objB.height &&
         objA.y + objA.height > objB.y
     );
 }
 
 
 
-function atualiza() { //atualiza as posiçoes e as funcoes dos objetos utilizados no projeto
+function atualiza() {
+    // Impede a atualização se o jogo tiver terminado
     
 
     colisaoInimigo();
 
     atualizaInimigo();
 
-    if (teclas['a'] || teclas['A']) {  // faz o player andar para tras ao pressionar a tecla A
+    if (teclas['a'] || teclas['A']) {
         player.x -= player.velocidade;
     }
 
-    if (teclas['d'] || teclas['D']) { // faz o player andar para tras ao pressionar a tecla D
+    if (teclas['d'] || teclas['D']) {
         player.x += player.velocidade;
     }
 
-   for(var i = 0; i < cano.length; i++){ //colisao do playet com o cano
+   for(var i = 0; i < cano.length; i++){
     
         
         if(colisao(player, cano[i]) && player.y <  cano[i].y){
@@ -54,7 +55,7 @@ function atualiza() { //atualiza as posiçoes e as funcoes dos objetos utilizado
         }
    };
 
-   for(var i = 0; i < npcs.length; i++){ //colisao do player com os npcs
+   for(var i = 0; i < npcs.length; i++){
     
         
     if(colisao(player, npcs[i]) && player.y <  npcs[i].y){
@@ -80,26 +81,26 @@ function atualiza() { //atualiza as posiçoes e as funcoes dos objetos utilizado
     
    
     
-player.y += player.velocidadeY;  
+player.y += player.velocidadeY;
  
     
-    
+    // Verifica se o jogador está no chão
     var noChao = false;
-    plataforma.forEach(function(plataforma) {  // verifica a colisao do player com a plataforma
+    plataforma.forEach(function(plataforma) {
         if (
             player.x < plataforma.x + plataforma.width &&
             player.x + player.width > plataforma.x &&
             player.y + player.height > plataforma.y &&
             player.y < plataforma.y + plataforma.height
         ) {
-            
+            // Colisão com a plataforma
             player.y = plataforma.y - player.height;
             player.pulando = false;
             player.velocidadeY = 0;
             noChao = true;
         }
     });
-        barreira.forEach(function(barreira) { // verifica a colisao do player com a barreira
+        barreira.forEach(function(barreira) {
             if (
                 player.x < barreira.x + barreira.width &&
                 player.x + player.width > barreira.x &&
@@ -124,39 +125,36 @@ player.y += player.velocidadeY;
         player.pulando = true;
     }
 
-    
-if ((teclas['w'] || teclas['W']) && !player.pulando && noChao) {  // faz o player pular ao pressionar W
+    // Pulo
+    // Pulo
+if ((teclas['w'] || teclas['W']) && !player.pulando && noChao) {
     player.velocidadeY = -player.alturaPulo;
     player.pulando = true;
 }
 
 
 
-    
+    // Verifica interação com os NPCs
     npcs.forEach(function(npc) {
-        
-        interagindo_NPC = npc
-        
+        // Calcula a distância entre o jogador e o NPC
         var distancia = Math.sqrt(Math.pow((player.x + player.width / 2) - (npc.x + npc.width / 2), 2) +
                                 Math.pow((player.y + player.height / 2) - (npc.y + npc.height / 2), 2));
-                                // calcula a distancia do player pro NPC utilizando teorema de Pitagoras
-        
+
+        // Define um raio de interação (ajuste conforme necessário)
         var raio = 75;
 
-        
+        // Verifica se o jogador está dentro do raio de interação
         if (distancia < raio) {
-            
-            if (teclas['Enter'] && interagindo_NPC.respondido == false) { // faz o player interagir com o npc ao clicar enter
+            // Verifica se a tecla Enter foi pressionada para interagir
+            if (teclas['Enter']) {
                 mostrarDialogo(npc.quiz.question, npc.quiz.options);
                 startCronometro(cronometro);
-                interagindo_NPC.respondido = true;
-                
             }
         }
     });
 
-    
-    camera.x = player.x - canvas.width / 4; // ajusta a posiçao da camera
+    // Atualiza a posição da câmera para seguir o jogador
+    camera.x = player.x - canvas.width / 4;
 
 
 }
